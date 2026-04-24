@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Loading Page</title>
+<title>Loading</title>
 
 <style>
 body {
@@ -11,7 +11,7 @@ body {
     overflow: hidden;
 }
 
-/* شريط التحميل الأحمر فوق */
+/* شريط التحميل الأحمر */
 #bar {
     position: fixed;
     top: 0;
@@ -22,23 +22,21 @@ body {
     animation: load 3s forwards;
 }
 
-/* حركة الشريط */
 @keyframes load {
     0% {width: 0%;}
     100% {width: 100%;}
 }
 
-/* الصورة في النص */
+/* الصورة */
 #logo {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.5);
-    width: 150px;
+    width: 160px;
     animation: zoom 3s forwards;
 }
 
-/* تكبير الصورة */
 @keyframes zoom {
     0% {transform: translate(-50%, -50%) scale(0.5);}
     100% {transform: translate(-50%, -50%) scale(1.2);}
@@ -54,8 +52,8 @@ body {
 
 <script>
 setTimeout(function(){
-    // بعد 3 ثواني ينقلك للصفحة التانية
-    window.location.href = "home.html";
+    // بدل ما يروح لصفحة تانية → نروح للموقع نفسه
+    window.location.href = "https://doctortbt.github.io/Burger-F5ama.github.io/";
 }, 3000);
 </script>
 
