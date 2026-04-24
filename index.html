@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Page</title>
+<title>Loading</title>
 
 <style>
 body {
@@ -11,31 +11,70 @@ body {
     overflow:hidden;
 }
 
-/* الصورة فقط تتحرك */
+/* شريط التحميل */
+#bar {
+    position:fixed;
+    top:0;
+    left:0;
+    height:5px;
+    width:0%;
+    background:red;
+    animation:load 3s forwards;
+}
+
+@keyframes load {
+    from {width:0%;}
+    to {width:100%;}
+}
+
+/* الصورة + الحركة (التعديل الوحيد هنا) */
 #logo {
     position:absolute;
     top:50%;
     left:50%;
-    transform:translate(-50%,-50%) scale(1);
     width:160px;
-    animation: move 3s ease-in-out forwards;
+
+    /* مهم: منع التعارض */
+    transform:translate(-50%,-50%) scale(1);
+
+    /* حركة تحميل + تكبير بسيط */
+    animation: zoom 3s ease-in-out forwards;
 }
 
-/* حركة بسيطة جدًا */
-@keyframes move {
-    from {
+@keyframes zoom {
+    0% {
         transform:translate(-50%,-50%) scale(1);
     }
-    to {
-        transform:translate(-50%,-50%) scale(1.1);
+    100% {
+        transform:translate(-50%,-50%) scale(1.08);
     }
+}
+
+/* النص */
+#text {
+    position:absolute;
+    top:70%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family:Arial;
+    color:#333;
 }
 </style>
 </head>
 
 <body>
 
+<div id="bar"></div>
+
 <img id="logo" src="https://i.ibb.co/mFt5J4vr/jojojo.png">
+
+<div id="text">جارٍ التحميل...</div>
+
+<script>
+setTimeout(function(){
+    window.location.href = "main.html";
+}, 3000);
+</script>
 
 </body>
 </html>
