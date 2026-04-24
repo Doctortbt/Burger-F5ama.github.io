@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Loading</title>
@@ -11,6 +12,7 @@ body {
     overflow:hidden;
 }
 
+/* شريط التحميل */
 #bar {
     position:fixed;
     top:0;
@@ -26,18 +28,23 @@ body {
     to {width:100%;}
 }
 
+/* اللوجو */
 #logo {
     position:absolute;
     top:50%;
     left:50%;
-    transform:translate(-50%,-50%) scale(0.5);
+    transform:translate(-50%,-50%);
     width:160px;
-    animation:zoom 3s forwards;
 }
 
-@keyframes zoom {
-    from {transform:translate(-50%,-50%) scale(0.5);}
-    to {transform:translate(-50%,-50%) scale(1.2);}
+/* نص تحميل */
+#text {
+    position:absolute;
+    top:70%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family:Arial;
+    color:#333;
 }
 </style>
 </head>
@@ -48,10 +55,12 @@ body {
 
 <img id="logo" src="https://cdn.discordapp.com/attachments/1490843957339361314/1497324717906854031/jojojo.png">
 
+<div id="text">جارٍ التحميل...</div>
+
 <script>
 setTimeout(function(){
-    // خليها واضحة بدل الرجوع لنفس الصفحة
-    console.log("Loading finished");
+    // بعد 3 ثواني يفتح الصفحة الرئيسية
+    window.location.href = "main.html";
 }, 3000);
 </script>
 
