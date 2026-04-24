@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/public/lib/photoswipe/dist/default-skin/default-skin.css" />
 <script type="text/javascript">
 /*<![CDATA[*/
-YII_CSRF_TOKEN='26a50b8d5e62962e30a02d30f03f567f7028ba13';
+YII_CSRF_TOKEN='fb7325e50088a283f586035b8104f900d469476e';
 /*]]>*/
 </script>
 <title>App Page</title>
@@ -16,7 +17,7 @@ YII_CSRF_TOKEN='26a50b8d5e62962e30a02d30f03f567f7028ba13';
     <meta name="robots" content="noindex, nofollow">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script type="text/javascript">
-        window.GLOBAL_CSRF_TOKEN = '26a50b8d5e62962e30a02d30f03f567f7028ba13';
+        window.GLOBAL_CSRF_TOKEN = 'fb7325e50088a283f586035b8104f900d469476e';
     </script>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
@@ -55,13 +56,13 @@ YII_CSRF_TOKEN='26a50b8d5e62962e30a02d30f03f567f7028ba13';
         <div class="loading-bar indeterminate" ng-style="{'background-color': view.code.color1 || view.color1}"></div>
     </div>
     <div class="helper"></div>
-  <img id="welcomeImg" imageonload ng-src="'https://cdn.discordapp.com/attachments/1490843957339361314/1497324717906854031/jojojo.png?ex=69ed1bcf&is=69ebca4f&hm=382709da5b9303826efae91c598ecc3cb2ee326025d9332521d05a2d5a34005d&'"
-     ng-style="{
-        'max-width': view.code.welcome_extra.zoom *2 || view.welcome_extra.zoom *2 + 'px',
-        'max-height': view.code.welcome_extra.zoom *2 || view.welcome_extra.zoom *2 + 'px',
-        'animation-iteration-count' :  view.showPreview == 'infinite' ? 'infinite' : '',
-        'animation-direction' :  view.showPreview == 'infinite' ? 'alternate' : ''
-     }">
+    <img id="welcomeImg" imageonload ng-src="{{view.welcome_screen || 'https://s3.eu-central-1.amazonaws.com/qrcgappcdn/gallery-solution/welcome.png'}}"
+         ng-style="{
+            'max-width': view.code.welcome_extra.zoom *2 || view.welcome_extra.zoom *2 + 'px',
+            'max-height': view.code.welcome_extra.zoom *2 || view.welcome_extra.zoom *2 + 'px',
+            'animation-iteration-count' :  view.showPreview == 'infinite' ? 'infinite' : '',
+            'animation-direction' :  view.showPreview == 'infinite' ? 'alternate' : ''
+            }">
 </div>
     <div class="sh-bar">
         <div class="sh-container" style="position: relative;">
