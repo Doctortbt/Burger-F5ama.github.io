@@ -11,22 +11,7 @@ body {
     overflow:hidden;
 }
 
-#bar {
-    position:fixed;
-    top:0;
-    left:0;
-    height:5px;
-    width:0%;
-    background:red;
-    animation:load 3s forwards;
-}
-
-@keyframes load {
-    from {width:0%;}
-    to {width:100%;}
-}
-
-/* 👇 التعديل المهم هنا */
+/* الصورة فقط */
 #logo {
     position:absolute;
     top:50%;
@@ -36,12 +21,13 @@ body {
     animation: zoom 3s forwards;
 }
 
+/* تكبير بسيط جدًا */
 @keyframes zoom {
-    0% {
+    from {
         transform:translate(-50%,-50%) scale(1);
     }
-    100% {
-        transform:translate(-50%,-50%) scale(1.15);
+    to {
+        transform:translate(-50%,-50%) scale(1.1);
     }
 }
 </style>
@@ -49,15 +35,7 @@ body {
 
 <body>
 
-<div id="bar"></div>
-
 <img id="logo" src="https://i.ibb.co/mFt5J4vr/jojojo.png">
-
-<script>
-setTimeout(function(){
-    console.log("done loading");
-}, 3000);
-</script>
 
 </body>
 </html>
