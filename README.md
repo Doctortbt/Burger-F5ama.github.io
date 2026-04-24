@@ -50,8 +50,8 @@ body {
 
 <script>
 setTimeout(function(){
-    // أهم سطر 👇 يفتح نفس الموقع بدون 404
-    window.location.href = "./";
+    // خليها واضحة بدل الرجوع لنفس الصفحة
+    console.log("Loading finished");
 }, 3000);
 </script>
 
