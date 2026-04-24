@@ -1,89 +1,63 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>موقعي</title>
+<meta charset="UTF-8">
+<title>Loading Page</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      text-align: center;
-    }
+<style>
+body {
+    margin: 0;
+    background: white;
+    overflow: hidden;
+}
 
-    header {
-      background: #ff1744;
-      color: white;
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
+/* شريط التحميل الأحمر فوق */
+#bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 0%;
+    background: red;
+    animation: load 3s forwards;
+}
 
-    .desc {
-      margin: 15px;
-      color: #444;
-    }
+/* حركة الشريط */
+@keyframes load {
+    0% {width: 0%;}
+    100% {width: 100%;}
+}
 
-    .btn {
-      display: inline-block;
-      margin: 15px;
-      padding: 12px 25px;
-      background: black;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
+/* الصورة في النص */
+#logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    width: 150px;
+    animation: zoom 3s forwards;
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
-      padding: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
-      margin: 20px;
-      color: #777;
-    }
-  </style>
+/* تكبير الصورة */
+@keyframes zoom {
+    0% {transform: translate(-50%, -50%) scale(0.5);}
+    100% {transform: translate(-50%, -50%) scale(1.2);}
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    🎉 موقعي الجميل
-  </header>
+<div id="bar"></div>
 
-  <div class="desc">
-    ده موقع بسيط معمول عشان تعرض صورك أو شغلك بسهولة 👌
-  </div>
+<img id="logo" src="https://cdn.discordapp.com/attachments/1490843957339361314/1497324717906854031/jojojo.png?ex=69ed1bcf&is=69ebca4f&hm=382709da5b9303826efae91c598ecc3cb2ee326025d9332521d05a2d5a34005d&">
 
-  <a class="btn" href="https://google.com" target="_blank">
-    اضغط هنا
-  </a>
-
-  <div class="gallery">
-    <img src="https://picsum.photos/400/300?1">
-    <img src="https://picsum.photos/400/300?2">
-    <img src="https://picsum.photos/400/300?3">
-    <img src="https://picsum.photos/400/300?4">
-  </div>
-
-  <footer>
-    © 2026 - موقعك
-  </footer>
+<script>
+setTimeout(function(){
+    // بعد 3 ثواني ينقلك للصفحة التانية
+    window.location.href = "home.html";
+}, 3000);
+</script>
 
 </body>
 </html>
