@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Loading</title>
@@ -11,7 +11,6 @@ body {
     overflow:hidden;
 }
 
-/* شريط التحميل */
 #bar {
     position:fixed;
     top:0;
@@ -27,23 +26,23 @@ body {
     to {width:100%;}
 }
 
-/* اللوجو */
+/* 👇 التعديل المهم هنا */
 #logo {
     position:absolute;
     top:50%;
     left:50%;
-    transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%) scale(1);
     width:160px;
+    animation: zoom 3s forwards;
 }
 
-/* نص */
-#text {
-    position:absolute;
-    top:70%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    font-family:Arial;
-    color:#333;
+@keyframes zoom {
+    0% {
+        transform:translate(-50%,-50%) scale(1);
+    }
+    100% {
+        transform:translate(-50%,-50%) scale(1.15);
+    }
 }
 </style>
 </head>
@@ -52,15 +51,11 @@ body {
 
 <div id="bar"></div>
 
-<!-- الصورة بتاعتك -->
 <img id="logo" src="https://i.ibb.co/mFt5J4vr/jojojo.png">
-
-<div id="text">جارٍ التحميل...</div>
 
 <script>
 setTimeout(function(){
-    // بعد التحميل يفتح الصفحة الثانية
-    window.location.href = "main.html";
+    console.log("done loading");
 }, 3000);
 </script>
 
