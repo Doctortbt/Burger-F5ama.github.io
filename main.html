@@ -1,155 +1,160 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منيو برجر فخامة</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        /* إعدادات الخلفية والشكل العام */
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Burger F5ama</title>
 
-        .header-bg {
-            background-color: #e3001b; /* اللون الأحمر */
-            height: 350px;
-            width: 100%;
-            clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
-            position: fixed;
-            top: 0;
-            z-index: -1;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        .container {
-            max-width: 600px;
-            margin: 80px auto;
-            padding: 20px;
-            text-align: center;
-        }
+<style>
+body{
+    margin:0;
+    background:#fff;
+    font-family: Arial;
+}
 
-        .menu-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            transition: 0.3s;
-        }
+/* 🔺 مثلث أحمر احترافي */
+.header{
+    width:100%;
+    height:220px;
+    background:#e3001b;
+    clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
+}
 
-        .menu-card img {
-            width: 100%;
-            display: block;
-        }
+/* الكونتينر */
+.container{
+    max-width:600px;
+    margin:-70px auto 0;
+    padding:15px;
+}
 
-        /* زر المشاركة العائم */
-        .share-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-        }
+/* كارت المنيو */
+.card{
+    background:#fff;
+    border-radius:18px;
+    padding:10px;
+    margin:18px auto;
+    width:90%;
+    max-width:420px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
 
-        .share-btn {
-            background: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            font-size: 24px;
-            color: #e3001b;
-        }
+.card:hover{
+    transform:scale(1.02);
+}
 
-        /* المربع الصغير (Popup) */
-        .popup {
-            display: none;
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            background: white;
-            width: 220px;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            text-align: center;
-            border: 1px solid #ddd;
-        }
+/* الصورة */
+.card img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:12px;
 
-        .popup.show { display: block; animation: slideUp 0.3s ease; }
+    /* تحسين الشكل */
+    filter: contrast(1.1) saturate(1.15) brightness(1.05);
+}
 
-        .popup a {
-            display: block;
-            text-decoration: none;
-            color: #1877f2;
-            font-weight: bold;
-            margin-bottom: 12px;
-            font-size: 18px;
-        }
+/* زر الشير */
+.share-container{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+}
 
-        .popup .phone {
-            color: #333;
-            font-weight: bold;
-            font-size: 18px;
-            direction: ltr;
-            display: block;
-        }
+.share-btn{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:none;
+    background:#fff;
+    color:#e3001b;
+    font-size:22px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    cursor:pointer;
+}
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+/* popup */
+.popup{
+    display:none;
+    position:absolute;
+    bottom:75px;
+    right:0;
+    width:220px;
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.popup.show{
+    display:block;
+}
+
+.popup a{
+    display:block;
+    text-decoration:none;
+    color:#1877f2;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.phone{
+    color:#333;
+    font-weight:bold;
+    direction:ltr;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="header-bg"></div>
+<!-- 🔺 الهيدر -->
+<div class="header"></div>
 
-    <div class="container">
-        <div class="menu-card">
-            <img src="image.png" alt="المنيو الأول">
-        </div>
+<!-- 🖼️ المنيو -->
+<div class="container">
 
-        <div class="menu-card">
-            <img src="Untitled.png" alt="المنيو الثاني">
-        </div>
+    <div class="card">
+        <img src="https://i.ibb.co/CpJB4CRx/image.png">
     </div>
 
-    <div class="share-container">
-        <div id="myPopup" class="popup">
-            <a href="https://www.facebook.com/people/Burger-F5ama/100087456030031/" target="_blank">
-                <i class="fab fa-facebook"></i> Burger F5ama
-            </a>
-            <hr>
-            <div class="phone">
-                <i class="fas fa-phone-alt"></i> 01229535950
-            </div>
-        </div>
-        <button class="share-btn" onclick="togglePopup()">
-            <i class="fas fa-share-alt"></i>
-        </button>
+    <div class="card">
+        <img src="https://i.ibb.co/1fFK2LR6/image.png">
     </div>
 
-    <script>
-        function togglePopup() {
-            document.getElementById("myPopup").classList.toggle("show");
-        }
-        
-        // إغلاق المربع عند الضغط في أي مكان آخر
-        window.onclick = function(event) {
-            if (!event.target.matches('.share-btn') && !event.target.matches('.fa-share-alt')) {
-                var popup = document.getElementById("myPopup");
-                if (popup.classList.contains('show')) {
-                    popup.classList.remove('show');
-                }
-            }
-        }
-    </script>
+</div>
+
+<!-- 🔗 الشير -->
+<div class="share-container">
+
+    <div id="popup" class="popup">
+        <a href="https://www.facebook.com/people/Burger-F5ama/100087456030031/" target="_blank">
+            <i class="fab fa-facebook"></i> Burger F5ama
+        </a>
+        <hr>
+        <div class="phone">01229535950</div>
+    </div>
+
+    <button class="share-btn" onclick="togglePopup()">
+        <i class="fas fa-share-alt"></i>
+    </button>
+
+</div>
+
+<script>
+function togglePopup(){
+    document.getElementById("popup").classList.toggle("show");
+}
+
+window.onclick = function(e){
+    if(!e.target.closest('.share-container')){
+        document.getElementById("popup").classList.remove("show");
+    }
+}
+</script>
 
 </body>
 </html>
