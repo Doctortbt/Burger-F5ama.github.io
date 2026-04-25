@@ -1,9 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- مهم جدًا عشان الموبايل -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Loading</title>
@@ -11,8 +10,25 @@
 <style>
 body {
     margin:0;
-    background:white;
     overflow:hidden;
+    background: radial-gradient(circle at center, #1a1a1a, #000);
+}
+
+/* Particles */
+body::before {
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity:0.05;
+    animation: moveParticles 20s linear infinite;
+}
+
+@keyframes moveParticles {
+    from {transform: translate(0,0);}
+    to {transform: translate(-200px,-200px);}
 }
 
 /* شريط التحميل */
@@ -20,7 +36,7 @@ body {
     position:fixed;
     top:0;
     left:0;
-    height:5px;
+    height:4px;
     width:100%;
     background:linear-gradient(to right, red 50%, transparent 50%);
     background-size:200% 100%;
@@ -32,31 +48,69 @@ body {
     to {background-position:0 0;}
 }
 
+/* Glow */
+#glow {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:300px;
+    height:300px;
+    background: radial-gradient(circle, rgba(255,0,0,0.3), transparent 70%);
+    transform:translate(-50%,-50%);
+    filter: blur(40px);
+}
+
 /* الصورة */
 #logo {
     position:absolute;
     top:50%;
     left:50%;
-
-    /* يخلي الحجم مناسب لكل الأجهزة */
-    width:40vw;
-    max-width:200px;
+    width:42vw;
+    max-width:220px;
 
     border-radius:50%;
     object-fit:cover;
 
-    transform:translate(-50%,-50%) scale(1);
-    animation: zoom 3s ease-in-out forwards;
+    opacity:0;
+    transform:translate(-50%,-50%) scale(0.8);
+
+    animation:
+        fadeIn 1s ease forwards,
+        zoom 2.5s ease forwards,
+        pulse 1.5s infinite;
+
+    box-shadow: 0 0 50px rgba(255,0,0,0.7);
+}
+
+/* دخول */
+@keyframes fadeIn {
+    to {opacity:1;}
 }
 
 /* تكبير */
 @keyframes zoom {
-    0% {
-        transform:translate(-50%,-50%) scale(1);
+    to {
+        transform:translate(-50%,-50%) scale(1.35);
     }
-    100% {
-        transform:translate(-50%,-50%) scale(1.4);
-    }
+}
+
+/* نبضة */
+@keyframes pulse {
+    0% {box-shadow: 0 0 20px rgba(255,0,0,0.4);}
+    50% {box-shadow: 0 0 70px rgba(255,0,0,1);}
+    100% {box-shadow: 0 0 20px rgba(255,0,0,0.4);}
+}
+
+/* fade قبل التحويل */
+#fade {
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    top:0;
+    left:0;
+    opacity:0;
+    transition:0.8s;
 }
 </style>
 </head>
@@ -64,13 +118,21 @@ body {
 <body>
 
 <div id="bar"></div>
+<div id="glow"></div>
 
 <img id="logo" src="https://i.ibb.co/mFt5J4vr/jojojo.png">
 
+<div id="fade"></div>
+
 <script>
 setTimeout(function(){
-    window.location.href = "main.html";
-}, 2000);
+    document.getElementById("fade").style.opacity = "1";
+
+    setTimeout(function(){
+        window.location.href = "main.html";
+    }, 800);
+
+}, 1800);
 </script>
 
 </body>
