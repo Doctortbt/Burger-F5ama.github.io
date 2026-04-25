@@ -1,103 +1,206 @@
-
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Burger F5ama</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger F5ama Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* إعدادات عامة للصفحة */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4; /* لون الجزء السفلي */
+            overflow-x: hidden;
+        }
 
-<style>
-body{
-  margin:0;
-  font-family: Tahoma;
-  background:#fff;
-}
+        /* الخلفية الحمراء المائلة العلوية */
+        .bg-red-angle {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60vh;
+            background-color: #e3001b; 
+            clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+            z-index: -1;
+        }
 
-/* الخلفية الحمراء */
-.menu-section{
-  background:#e60000;
-  padding:20px 10px;
-}
+        /* حاوية المحتوى الرئيسية */
+        .main-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+        }
 
-/* كارت المنيو */
-.menu-card{
-  background:#ff1a1a;
-  border-radius:20px;
-  padding:15px;
-  margin:20px auto;
-  max-width:420px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.2);
-}
+        /* حاوية صور المنيو */
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 500px;
+            z-index: 1;
+        }
 
-/* صورة */
-.menu-card img{
-  width:100%;
-  border-radius:15px;
-}
+        .menu-items img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
 
-/* زر الشير */
-.share{
-  position:fixed;
-  right:15px;
-  top:50%;
-  transform:translateY(-50%);
-}
+        /* إعدادات زر المشاركة ومكانه */
+        .share-container {
+            position: absolute;
+            top: 250px; /* يمكنك تعديل الرقم لرفع أو خفض الزر */
+            right: 20px;
+            z-index: 10;
+        }
 
-.share-btn{
-  width:50px;
-  height:50px;
-  border:none;
-  border-radius:50%;
-  background:white;
-  font-size:20px;
-  cursor:pointer;
-}
+        .share-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #555;
+            transition: transform 0.2s;
+        }
 
-.share-box{
-  display:none;
-  margin-top:10px;
-  text-align:center;
-}
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
 
-.share-box img{
-  width:40px;
-  cursor:pointer;
-}
+        /* المربع الصغير (القائمة المنسدلة التي تظهر عند الضغط) */
+        .share-popup {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-width: 200px;
+            
+            /* إخفاء القائمة في البداية */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
 
-/* الأرقام */
-.phones{
-  padding:20px;
-  text-align:center;
-}
+        /* كلاس يضاف بواسطة الجافاسكربت لإظهار القائمة */
+        .share-popup.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-.phone{
-  background:#e60000;
-  color:white;
-  margin:10px auto;
-  padding:12px;
-  width:260px;
-  border-radius:30px;
-  font-size:16px;
-  cursor:pointer;
-  transition:0.3s;
-}
+        /* تصميم الروابط والنصوص داخل مربع الشير */
+        .social-link {
+            text-decoration: none;
+            color: #1877f2; /* لون فيسبوك الأزرق */
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s;
+        }
+        
+        .social-link:hover {
+            color: #1052a8;
+        }
 
-.phone:hover{
-  background:#000;
-}
-</style>
+        .social-link i {
+            font-size: 24px;
+        }
+
+        .phone-contact {
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            direction: ltr; /* لجعل الرقم يقرأ من اليسار لليمين */
+            justify-content: flex-end; 
+        }
+
+        .phone-contact i {
+            color: #25D366; /* لون التليفون */
+            font-size: 20px;
+        }
+        
+        /* ضبط مكان الزر على الموبايل */
+        @media (max-width: 768px) {
+            .share-container {
+                right: 5px;
+                top: 150px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- المنيو -->
-<div class="menu-section">
+    <div class="bg-red-angle"></div>
 
-  <!-- الصورة الأولى -->
-  <div class="menu-card">
-    <img src="https://cdn.discordapp.com/attachments/1490843957339361314/1497725368021286984/image.png?quality=lossless&width=1200">
-  </div>
+    <div class="main-container">
+        
+        <div class="share-container">
+            <button class="share-btn" onclick="toggleSharePopup()">
+                <i class="fas fa-share-nodes"></i>
+            </button>
+            
+            <div class="share-popup" id="sharePopup">
+                <a href="https://www.facebook.com/people/Burger-F5ama/100087456030031/" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i> بيدج الفيسبوك
+                </a>
+                
+                <div class="phone-contact">
+                    <span>01229535950</span>
+                    <i class="fas fa-phone"></i>
+                </div>
+            </div>
+        </div>
 
-  <!-- صورة المنيو -->
-  <div class="menu-card">
-    <img
+        <div class="menu-items">
+            <img src="image.png" alt="Menu Image 1">
+            
+            <img src="Untitled.png" alt="Menu Image 2">
+        </div>
+
+    </div>
+
+    <script>
+        function toggleSharePopup() {
+            var popup = document.getElementById("sharePopup");
+            popup.classList.toggle("active");
+        }
+
+        // إغلاق المربع الصغير تلقائياً إذا ضغط المستخدم في أي مكان خارج المربع
+        document.addEventListener('click', function(event) {
+            var shareContainer = document.querySelector('.share-container');
+            var popup = document.getElementById("sharePopup");
+            
+            if (!shareContainer.contains(event.target) && popup.classList.contains('active')) {
+                popup.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
