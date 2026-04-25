@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- مهم جدًا عشان الموبايل -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Loading</title>
 
 <style>
@@ -11,20 +15,21 @@ body {
     overflow:hidden;
 }
 
-/* شريط التحميل (يلف مرتين بسرعة) */
+/* شريط التحميل */
 #bar {
     position:fixed;
     top:0;
     left:0;
     height:5px;
-    width:0%;
-    background:red;
-    animation:load 1.5s linear 2;
+    width:100%;
+    background:linear-gradient(to right, red 50%, transparent 50%);
+    background-size:200% 100%;
+    animation: moveBar 0.7s linear 2;
 }
 
-@keyframes load {
-    from {width:0%;}
-    to {width:100%;}
+@keyframes moveBar {
+    from {background-position:100% 0;}
+    to {background-position:0 0;}
 }
 
 /* الصورة */
@@ -32,34 +37,26 @@ body {
     position:absolute;
     top:50%;
     left:50%;
-    width:160px;
 
-    /* مدوّرة */
+    /* يخلي الحجم مناسب لكل الأجهزة */
+    width:40vw;
+    max-width:200px;
+
     border-radius:50%;
+    object-fit:cover;
 
     transform:translate(-50%,-50%) scale(1);
-
-    /* تكبير أقوى */
     animation: zoom 3s ease-in-out forwards;
 }
 
+/* تكبير */
 @keyframes zoom {
     0% {
         transform:translate(-50%,-50%) scale(1);
     }
     100% {
-        transform:translate(-50%,-50%) scale(1.25);
+        transform:translate(-50%,-50%) scale(1.4);
     }
-}
-
-/* النص */
-#text {
-    position:absolute;
-    top:70%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    font-family:Arial;
-    color:#333;
 }
 </style>
 </head>
@@ -70,12 +67,10 @@ body {
 
 <img id="logo" src="https://i.ibb.co/mFt5J4vr/jojojo.png">
 
-<div id="text">جارٍ التحميل...</div>
-
 <script>
 setTimeout(function(){
     window.location.href = "main.html";
-}, 3000);
+}, 2000);
 </script>
 
 </body>
