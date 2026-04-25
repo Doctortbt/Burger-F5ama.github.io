@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,16 +47,16 @@ body::before {
     to {background-position:0 0;}
 }
 
-/* Glow خفيف */
+/* الهايلايت الأحمر (أقوى سنة بسيطة) */
 #glow {
     position:absolute;
     top:50%;
     left:50%;
-    width:280px;
-    height:280px;
-    background: radial-gradient(circle, rgba(255,0,0,0.15), transparent 70%);
+    width:320px;
+    height:320px;
+    background: radial-gradient(circle, rgba(255,0,0,0.22), transparent 72%);
     transform:translate(-50%,-50%);
-    filter: blur(35px);
+    filter: blur(38px);
 }
 
 /* الصورة */
@@ -79,7 +78,7 @@ body::before {
         zoom 2.5s ease forwards,
         pulse 1.5s infinite;
 
-    box-shadow: 0 0 35px rgba(255,0,0,0.35);
+    box-shadow: 0 0 40px rgba(255,0,0,0.4);
 }
 
 /* دخول */
@@ -87,7 +86,7 @@ body::before {
     to {opacity:1;}
 }
 
-/* تكبير */
+/* تكبير بسيط */
 @keyframes zoom {
     from {
         transform:translate(-50%,-50%) scale(1);
@@ -97,11 +96,11 @@ body::before {
     }
 }
 
-/* نبضة أهدى */
+/* نبضة محسّنة */
 @keyframes pulse {
-    0% {box-shadow: 0 0 15px rgba(255,0,0,0.2);}
-    50% {box-shadow: 0 0 45px rgba(255,0,0,0.5);}
-    100% {box-shadow: 0 0 15px rgba(255,0,0,0.2);}
+    0% {box-shadow: 0 0 18px rgba(255,0,0,0.25);}
+    50% {box-shadow: 0 0 60px rgba(255,0,0,0.6);}
+    100% {box-shadow: 0 0 18px rgba(255,0,0,0.25);}
 }
 
 /* انتقال قبل الفتح */
