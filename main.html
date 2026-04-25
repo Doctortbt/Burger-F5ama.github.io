@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -6,122 +7,97 @@
 <title>Burger F5ama</title>
 
 <style>
-body {
-  margin: 0;
+body{
+  margin:0;
   font-family: Tahoma;
-  background: #ffffff;
+  background:#fff;
 }
 
-/* سكشن أحمر زي الصورة */
-.section {
-  background: #e60000;
-  padding: 20px 0;
-  text-align: center;
+/* الخلفية الحمراء */
+.menu-section{
+  background:#e60000;
+  padding:20px 10px;
 }
 
-/* الكروت */
-.card {
-  width: 90%;
-  max-width: 420px;
-  margin: 20px auto;
-  background: #ff1a1a;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+/* كارت المنيو */
+.menu-card{
+  background:#ff1a1a;
+  border-radius:20px;
+  padding:15px;
+  margin:20px auto;
+  max-width:420px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
-.card img {
-  width: 100%;
-  display: block;
+/* صورة */
+.menu-card img{
+  width:100%;
+  border-radius:15px;
 }
 
 /* زر الشير */
-.share {
-  position: fixed;
-  right: 15px;
-  top: 50%;
+.share{
+  position:fixed;
+  right:15px;
+  top:50%;
+  transform:translateY(-50%);
 }
 
-.share button {
-  background: white;
-  border: none;
-  padding: 12px;
-  border-radius: 50%;
-  cursor: pointer;
+.share-btn{
+  width:50px;
+  height:50px;
+  border:none;
+  border-radius:50%;
+  background:white;
+  font-size:20px;
+  cursor:pointer;
 }
 
-.share-box {
-  display: none;
-  margin-top: 10px;
+.share-box{
+  display:none;
+  margin-top:10px;
+  text-align:center;
 }
 
-.share-box img {
-  width: 40px;
-  cursor: pointer;
+.share-box img{
+  width:40px;
+  cursor:pointer;
 }
 
-/* أرقام */
-.phones {
-  text-align: center;
-  margin: 30px 0;
+/* الأرقام */
+.phones{
+  padding:20px;
+  text-align:center;
 }
 
-.phone {
-  background: #e60000;
-  color: white;
-  padding: 12px;
-  margin: 10px auto;
-  width: 250px;
-  border-radius: 30px;
-  cursor: pointer;
+.phone{
+  background:#e60000;
+  color:white;
+  margin:10px auto;
+  padding:12px;
+  width:260px;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.phone:hover{
+  background:#000;
 }
 </style>
 </head>
 
 <body>
 
-<div class="section">
+<!-- المنيو -->
+<div class="menu-section">
 
-  <!-- أول صورة -->
-  <div class="card">
+  <!-- الصورة الأولى -->
+  <div class="menu-card">
     <img src="https://cdn.discordapp.com/attachments/1490843957339361314/1497725368021286984/image.png?quality=lossless&width=1200">
   </div>
 
   <!-- صورة المنيو -->
-  <div class="card">
-    <img src="https://cdn.discordapp.com/attachments/1490843957339361314/1497726083632463922/Untitled.png?quality=lossless&width=1200">
-  </div>
-
-</div>
-
-<!-- زر الشير -->
-<div class="share">
-  <button onclick="toggleShare()">🔗</button>
-
-  <div class="share-box" id="box">
-    <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png"
-         onclick="window.open('https://www.facebook.com/people/Burger-F5ama/100087456030031/')">
-  </div>
-</div>
-
-<!-- أرقام -->
-<div class="phones">
-  <div class="phone" onclick="call('01022252741')">📞 01022252741</div>
-  <div class="phone" onclick="call('01229535950')">📞 01229535950</div>
-  <div class="phone" onclick="call('01102088131')">📞 01102088131</div>
-  <div class="phone" onclick="call('01055101715')">📞 01055101715</div>
-</div>
-
-<script>
-function toggleShare(){
-  let b = document.getElementById("box");
-  b.style.display = b.style.display === "block" ? "none" : "block";
-}
-
-function call(num){
-  window.location.href = "tel:" + num;
-}
-</script>
-
-</body>
-</html>
+  <div class="menu-card">
+    <img
